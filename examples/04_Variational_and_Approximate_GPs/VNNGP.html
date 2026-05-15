@@ -13243,29 +13243,87 @@ div#notebook {
         .output_subarea.output_stream.output_stderr.output_text {
             display: none !important;
         }
-    
-        .proof-block {
+
+        .math-block {
             margin: 24px 55px;
-            padding: 14px 18px;
-            border-left: 4px solid #555;
-            background: #f7f7f7;
-            border-radius: 6px;
+            border-radius: 14px;
+            background: var(--block-bg, #f7f7f7);
+            border-left: 5px solid var(--block-border, #555);
+            overflow: hidden;
         }
 
-        .proof-block summary {
+        .math-block.theorem {
+            --block-border: #2563eb;
+            --block-bg: #eff6ff;
+        }
+
+        .math-block.definition {
+            --block-border: #0f766e;
+            --block-bg: #ecfdf5;
+        }
+
+        .math-block.lemma {
+            --block-border: #7c3aed;
+            --block-bg: #f5f3ff;
+        }
+
+        .math-block.corollary {
+            --block-border: #d97706;
+            --block-bg: #fffbeb;
+        }
+
+        .math-block.axiom {
+            --block-border: #be123c;
+            --block-bg: #fff1f2;
+        }
+
+        .math-block.proposition {
+            --block-border: #475569;
+            --block-bg: #f8fafc;
+        }
+
+        .math-block.example {
+            --block-border: #0891b2;
+            --block-bg: #ecfeff;
+        }
+
+        .math-block.remark {
+            --block-border: #334155;
+            --block-bg: #f1f5f9;
+        }
+
+        .math-block summary,
+        .math-block-summary {
             cursor: pointer;
-            font-weight: 700;
-            font-size: 1.15em;
+            padding: 22px 26px;
+            list-style: none;
+        }
+
+        .math-block summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .math-block-summary h1,
+        .math-block-summary h2,
+        .math-block-summary h3,
+        .math-block-summary h4,
+        .math-block-summary p {
             text-indent: 0 !important;
         }
 
-        .proof-block p,
-        .proof-block h1,
-        .proof-block h2,
-        .proof-block h3,
-        .proof-block h4,
-        .proof-block h5,
-        .proof-block h6 {
+        .proof-content {
+            padding: 22px 26px;
+            border-top: 1px solid rgba(0,0,0,0.12);
+            background: white;
+        }
+
+        .proof-content p,
+        .proof-content h1,
+        .proof-content h2,
+        .proof-content h3,
+        .proof-content h4,
+        .proof-content ul,
+        .proof-content ol {
             text-indent: 0 !important;
         }
         </style>
@@ -13274,7 +13332,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=7403f393"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=b149fe03"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="VNNGP:-Variational-Nearest-Neighbor-Gaussian-Procceses">VNNGP: Variational Nearest Neighbor Gaussian Procceses<a class="anchor-link" href="#VNNGP:-Variational-Nearest-Neighbor-Gaussian-Procceses">¶</a></h1><h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>In this notebook, we will give an overview of how to use variational nearest neighbor Gaussian processes (VNNGP) (<a href="https://arxiv.org/abs/2202.01694">https://arxiv.org/abs/2202.01694</a>) to rapidly train on the <code>elevators</code> UCI dataset.</p>
@@ -13287,7 +13345,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4299d30a">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a19e5c03">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
@@ -13305,7 +13363,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=31bf7ff5">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b23333d9">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
@@ -13349,7 +13407,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=ff2b8880"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4c5432d4"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Creating-a-VNNGP-model">Creating a VNNGP model<a class="anchor-link" href="#Creating-a-VNNGP-model">¶</a></h2><p>Creating a VNNGP model is similar to creating <a href="./SVGP_Regression_CUDA.ipynb">other variational models</a>. Here are some things that are specific to VNNGP:</p>
@@ -13366,7 +13424,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=b49a8ec6">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=7762d98e">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
@@ -13425,7 +13483,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=74a462dd"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5000bced"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Training-the-Model-(mode-1,-recommended)">Training the Model (mode 1, recommended)<a class="anchor-link" href="#Training-the-Model-(mode-1,-recommended)">¶</a></h2><p>The cell below trains the model above, learning both the hyperparameters of the Gaussian process and the parameters of the neural network in an end-to-end fashion using Type-II MLE. VNNGP's training objective is to miminize the negative ELBO. Note that in the beginning, we introduce that VNNGP is ameanable to stochastic optimization over both data points and inducing points. That means in each iteration, we will sample a mini-batch of data points and a mini-batch of inducing points, compute the stochastic ELBO estimate, and then take a gradient step to update the model parameters.</p>
@@ -13434,7 +13492,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=3c85507b">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=73bcab85">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
@@ -13612,14 +13670,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=947557b7"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=41b0f3c3"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Making-predictions">Making predictions<a class="anchor-link" href="#Making-predictions">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=6abc8f8d">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=1bdac10d">
 <div class="input">
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
@@ -13634,7 +13692,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=0b871be9">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f65db95e">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
@@ -13659,7 +13717,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9f687523">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=518d9bac">
 <div class="input">
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
@@ -13674,7 +13732,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=d3ccf19f">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=668c1dd8">
 <div class="input">
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
@@ -13699,7 +13757,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=49620fe7">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=5056c989">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
@@ -13721,14 +13779,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=20eec569"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=444c96e2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Training-the-Model-(mode-2)">Training the Model (mode 2)<a class="anchor-link" href="#Training-the-Model-(mode-2)">¶</a></h2><p>In this mode, users are able to sample separate mini-batches for training data and inducing points. Note that this will yield a slower training speed, since every iteration requires finding the set of inducing points that matches the current batch of training data for calculating ELBO.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5edcddb6">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9ed0908c">
 <div class="input">
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
@@ -13751,7 +13809,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f282f876">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0782ddd2">
 <div class="input">
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
@@ -13926,14 +13984,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=03e7f0f3"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8d147caf"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Making-predictions">Making predictions<a class="anchor-link" href="#Making-predictions">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2465a92a">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ff23f6fc">
 <div class="input">
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
@@ -13958,7 +14016,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=643891f9">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=7c80e4a6">
 <div class="input">
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
@@ -13980,7 +14038,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=8c4ad247">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=cf737179">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
