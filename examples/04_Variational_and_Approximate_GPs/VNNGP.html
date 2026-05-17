@@ -13497,7 +13497,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2361e265"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=012e9280"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="VNNGP:-Variational-Nearest-Neighbor-Gaussian-Procceses">VNNGP: Variational Nearest Neighbor Gaussian Procceses<a class="anchor-link" href="#VNNGP:-Variational-Nearest-Neighbor-Gaussian-Procceses">¶</a></h1><h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>In this notebook, we will give an overview of how to use variational nearest neighbor Gaussian processes (VNNGP) (<a href="https://arxiv.org/abs/2202.01694">https://arxiv.org/abs/2202.01694</a>) to rapidly train on the <code>elevators</code> UCI dataset.</p>
@@ -13510,7 +13510,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=1bb36da8">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f8361ee3">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
@@ -13528,7 +13528,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2c1417d4">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=286652b5">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
@@ -13572,7 +13572,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=799b3768"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5cd6f8fd"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Creating-a-VNNGP-model">Creating a VNNGP model<a class="anchor-link" href="#Creating-a-VNNGP-model">¶</a></h2><p>Creating a VNNGP model is similar to creating <a href="./SVGP_Regression_CUDA.ipynb">other variational models</a>. Here are some things that are specific to VNNGP:</p>
@@ -13589,7 +13589,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=56ad9bb5">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=362353c3">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
@@ -13648,7 +13648,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e5d8a819"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=50b13af5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Training-the-Model-(mode-1,-recommended)">Training the Model (mode 1, recommended)<a class="anchor-link" href="#Training-the-Model-(mode-1,-recommended)">¶</a></h2><p>The cell below trains the model above, learning both the hyperparameters of the Gaussian process and the parameters of the neural network in an end-to-end fashion using Type-II MLE. VNNGP's training objective is to miminize the negative ELBO. Note that in the beginning, we introduce that VNNGP is ameanable to stochastic optimization over both data points and inducing points. That means in each iteration, we will sample a mini-batch of data points and a mini-batch of inducing points, compute the stochastic ELBO estimate, and then take a gradient step to update the model parameters.</p>
@@ -13657,7 +13657,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2a8f36e5">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=b1927a8d">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
@@ -13835,14 +13835,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=792a0bd5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=bd504727"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Making-predictions">Making predictions<a class="anchor-link" href="#Making-predictions">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=27774681">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=00f24f57">
 <div class="input">
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
@@ -13857,7 +13857,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=28f3245b">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=415007a8">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
@@ -13882,7 +13882,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a9a60eff">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e487e35a">
 <div class="input">
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
@@ -13897,7 +13897,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=fae73e51">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d9c7620f">
 <div class="input">
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
@@ -13922,7 +13922,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=bf49597e">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e3bea538">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
@@ -13944,14 +13944,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=5f79dc39"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=b2d79292"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Training-the-Model-(mode-2)">Training the Model (mode 2)<a class="anchor-link" href="#Training-the-Model-(mode-2)">¶</a></h2><p>In this mode, users are able to sample separate mini-batches for training data and inducing points. Note that this will yield a slower training speed, since every iteration requires finding the set of inducing points that matches the current batch of training data for calculating ELBO.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=0fed6bab">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ec750a99">
 <div class="input">
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
@@ -13974,7 +13974,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=26eb4adf">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2092e2d5">
 <div class="input">
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
@@ -14149,14 +14149,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=115fb021"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4370820f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Making-predictions">Making predictions<a class="anchor-link" href="#Making-predictions">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=49d2d783">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e7f152f0">
 <div class="input">
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
@@ -14181,7 +14181,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=254c4028">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=7005702c">
 <div class="input">
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
@@ -14203,7 +14203,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=9366b3fb">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=56fd5b6c">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
